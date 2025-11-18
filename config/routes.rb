@@ -7,4 +7,14 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  namespace :api do
+    namespace :v1 do
+      resources :subscriptions, only: [ :create ]
+    end
+  end
+
+  namespace :webhooks do
+    post "apple", to: "apple#create"
+  end
 end
