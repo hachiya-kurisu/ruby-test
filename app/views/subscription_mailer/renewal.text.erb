@@ -1,0 +1,9 @@
+Hi <%= @user.email %>,
+
+Your subscription has been successfully renewed.
+
+Renewal Details:
+Product: <%= @subscription.product_id %>
+Current Period: <%= @subscription.current_period_start&.strftime('%B %d, %Y') %> - <%= @subscription.current_period_end&.strftime('%B %d, %Y') %>
+
+Thank you for continuing your subscription!

@@ -1,0 +1,11 @@
+Hi <%= @user.email %>,
+
+Welcome! Your subscription is now active and ready to use.
+
+Subscription Details:
+
+Product: <%= @subscription.product_id %>
+Started: <%= @subscription.current_period_start&.strftime('%B %d, %Y at %l:%M %p') %>
+Renews: <%= @subscription.current_period_end&.strftime('%B %d, %Y at %l:%M %p') %>
+
+Thank you for subscribing!

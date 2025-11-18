@@ -1,0 +1,12 @@
+Hi <%= @user.email %>,
+
+We've received your cancellation request and your subscription has been cancelled.
+
+Important Information:
+Product: <%= @subscription.product_id %>
+You still have access until: <%= @subscription.current_period_end&.strftime('%B %d, %Y at %l:%M %p') %>
+Days remaining: <%= @subscription.days_until_expiration %>
+
+You will continue to have full access to your subscription until the end of your current billing period. No further charges will be made.
+
+We're sorry to see you go. If you change your mind, you can always resubscribe!

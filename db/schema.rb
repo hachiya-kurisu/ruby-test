@@ -45,6 +45,7 @@ ActiveRecord::Schema[8.1].define(version: 2025_11_18_114030) do
     t.string "transaction_id", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id", null: false
+    t.index ["transaction_id"], name: "index_subscriptions_on_transaction_id", unique: true
     t.index ["user_id"], name: "index_current_active_subscription", unique: true, where: "(status = ANY (ARRAY[0, 1]))"
     t.index ["user_id"], name: "index_subscriptions_on_user_id"
   end

@@ -16,5 +16,8 @@ class CreateSubscriptions < ActiveRecord::Migration[8.1]
       unique: true,
       where: "status IN (0, 1)",
       name: "index_current_active_subscription"
+
+    # transaction_id must be globally unique
+    add_index :subscriptions, :transaction_id, unique: true
   end
 end
