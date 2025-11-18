@@ -14,7 +14,7 @@ module Api
         render json: {
           subscription_id: subscription.id,
           status: subscription.status,
-          transaction_id: subscription.transaction_id,
+          transaction_id: subscription.transaction_id
         }, status: :created
       rescue ActiveRecord::RecordNotFound
         render json: { error: "User not found" }, status: :not_found
