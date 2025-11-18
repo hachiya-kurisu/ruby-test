@@ -1,0 +1,9 @@
+alice:
+  email: alice@example.com
+  deleted_at: null
+bob:
+  email: bob@example.com
+  deleted_at: null
+deleted_user:
+  email: deleted@example.com
+  deleted_at: <%= 1.day.ago %>

@@ -1,0 +1,24 @@
+provisional_subscription:
+  user: alice
+  transaction_id: "txn_provisional"
+  product_id: "com.samansa.subscription.monthly"
+  status: 0 # provisional
+  current_period_start: null
+  current_period_end: null
+  cancelled_at: null
+active_subscription:
+  user: bob
+  transaction_id: "txn_active"
+  product_id: "com.samansa.subscription.monthly"
+  status: 1 # active
+  current_period_start: <%= 1.month.ago %>
+  current_period_end: <%= 1.month.from_now %>
+  cancelled_at: null
+cancelled_subscription:
+  user: deleted_user
+  transaction_id: "txn_cancelled"
+  product_id: "com.samansa.subscription.monthly"
+  status: 2 # cancelled
+  current_period_start: <%= 2.month.ago %>
+  current_period_end: <%= 1.week.from_now %>
+  cancelled_at: <%= 1.day.ago %>
