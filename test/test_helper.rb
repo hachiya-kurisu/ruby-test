@@ -10,6 +10,19 @@ module ActiveSupport
     # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
     fixtures :all
 
-    # Add more helper methods to be used by all tests here...
+    # Coverage
+    SimpleCov.start "rails" do
+      enable_coverage :branch
+      primary_coverage :branch
+
+      add_filter "/test/"
+      add_filter "/config/"
+
+      add_group "Models", "app/models"
+      add_group "Controllers", "app/controllers"
+      add_group "Jobs", "app/jobs"
+
+      minimum_coverage line: 100, branch: 100
+    end
   end
 end
