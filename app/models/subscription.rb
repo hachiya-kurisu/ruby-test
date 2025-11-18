@@ -17,10 +17,6 @@ class Subscription < ApplicationRecord
     current_period_start.present? && current_period_end.present?
   }
 
-  scope :expiring_soon, -> {
-    where("current_period_end < ?", 3.days.from_now)
-  }
-
   scope :currently_valid, -> {
     where(status: [:active, :cancelled]).order(created_at: :desc)
   }
