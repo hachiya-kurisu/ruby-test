@@ -15,5 +15,5 @@ production:
     schedule: every hour at minute 12
   expire_subscriptions:
     class: ExpireSubscriptionsJob
-    schedule: every day at 12am
+    schedule: every day at midnight
 
