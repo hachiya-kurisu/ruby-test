@@ -5,7 +5,7 @@ class User < ApplicationRecord
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
 
   scope :active, -> { where(deleted_at: nil) }
-  scope :deleted, -> { where(deleted_at: nil) }
+  scope :deleted, -> { where.not(deleted_at: nil) }
 
   def soft_delete
     update!(deleted_at: Time.current)
