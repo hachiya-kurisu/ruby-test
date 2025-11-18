@@ -18,7 +18,7 @@ class Subscription < ApplicationRecord
   }
 
   scope :currently_valid, -> {
-    where(status: [:active, :cancelled]).order(created_at: :desc)
+    where(status: [ :active, :cancelled ]).order(created_at: :desc)
   }
 
   # state transitions
