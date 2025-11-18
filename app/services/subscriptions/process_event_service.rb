@@ -49,7 +49,7 @@ module Subscriptions
       SubscriptionMailer.with(
         user: user,
         subscription: subscription
-      ).welcome.deliver_later
+      ).welcome.deliver_now
     end
 
     def handle_renewal
@@ -61,7 +61,7 @@ module Subscriptions
       SubscriptionMailer.with(
         user: user,
         subscription: subscription
-      ).renewal.deliver_later
+      ).renewal.deliver_now
     end
 
     def handle_cancellation
@@ -70,7 +70,7 @@ module Subscriptions
       SubscriptionMailer.with(
         user: user,
         subscription: subscription
-      ).cancellation.deliver_later
+      ).cancellation.deliver_now
     end
   end
 end
