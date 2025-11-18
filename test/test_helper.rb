@@ -24,5 +24,10 @@ module ActiveSupport
 
       minimum_coverage line: 100, branch: 100
     end
+
+    # clear email deliveries before each test (needed for OPEN_EMAILS=1)
+    def setup
+      ActionMailer::Base.deliveries.clear
+    end
   end
 end
