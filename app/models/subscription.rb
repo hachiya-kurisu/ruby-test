@@ -65,6 +65,10 @@ class Subscription < ApplicationRecord
       raise SubscriptionErrors::InvalidTransition, "can only expire cancelled subscriptions"
     end
 
+    if current_period_end > Time.current
+      raise SubscriptionErrors::InvalidTransition, "subscription hasn't expired yet"
+    end
+
     update!(status: :expired)
   end
 
