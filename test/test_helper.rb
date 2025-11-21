@@ -1,3 +1,20 @@
+if ENV["COVERAGE"]
+  require "simplecov"
+  SimpleCov.start "rails" do
+    enable_coverage :branch
+    primary_coverage :branch
+
+    add_filter "/test/"
+    add_filter "/config/"
+
+    add_group "Models", "app/models"
+    add_group "Controllers", "app/controllers"
+    add_group "Jobs", "app/jobs"
+
+    minimum_coverage line: 100, branch: 100
+  end
+end
+  
 ENV["RAILS_ENV"] ||= "test"
 require_relative "../config/environment"
 require "rails/test_help"
@@ -9,21 +26,6 @@ module ActiveSupport
 
     # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
     fixtures :all
-
-    # Coverage
-    SimpleCov.start "rails" do
-      enable_coverage :branch
-      primary_coverage :branch
-
-      add_filter "/test/"
-      add_filter "/config/"
-
-      add_group "Models", "app/models"
-      add_group "Controllers", "app/controllers"
-      add_group "Jobs", "app/jobs"
-
-      minimum_coverage line: 100, branch: 100
-    end
 
     # clear email deliveries before each test (needed for OPEN_EMAILS=1)
     def setup
