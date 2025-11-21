@@ -14,7 +14,7 @@ if ENV["COVERAGE"]
     minimum_coverage line: 100, branch: 100
   end
 end
-  
+
 ENV["RAILS_ENV"] ||= "test"
 require_relative "../config/environment"
 require "rails/test_help"
